@@ -10,15 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
+var app_component_1 = require('./components/app.component');
+var home_1 = require('./components/home/home');
+var dashboard_1 = require('./components/dashboard/dashboard');
+var header_1 = require('./components/header/header');
+var rd_widget_1 = require('./components/rd-widget/rd-widget');
+var rd_widget_body_1 = require('./components/rd-widget-body/rd-widget-body');
+var routing_module_1 = require('./routing/routing.module');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [
+                platform_browser_1.BrowserModule,
+                routing_module_1.AppRoutingModule
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                home_1.Home,
+                dashboard_1.Dashboard,
+                header_1.Header,
+                rd_widget_1.RdWidget,
+                rd_widget_body_1.RdWidgetBody
+            ],
+            bootstrap: [
+                app_component_1.AppComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
