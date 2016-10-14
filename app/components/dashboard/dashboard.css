@@ -7,8 +7,11 @@
 
 .panel-heading{
     background-color: rgba(255, 99, 84, 1);
+    border-top: 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     color: white;
-    font-size: 24px;
+    font-size: 1.8em;
 }
 
 .well{
@@ -17,14 +20,81 @@
     border-radius: 7px;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
     color: white;
-    font-size: 24px;
+    font-size: 2em;
 }
 
 .material-icons{
     color: white;
-    font-size: 24px;
+    font-size: 1em;
+    sele
 }
 
 .today{
-    font-size: 80px;
+    font-size: 2.5em;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.speech{
+    font-size: 1.5em;
+    color: rgba(255, 99, 84, 1);
+    background-color: white;
+    padding: 0.25em;
+}
+
+.pinched {
+position:relative;
+  padding-top:1em;
+  padding-bottom:0.1em;
+  padding-right:1em;
+  padding-left:1em;
+  margin:1.5em 0;
+  text-align:center;
+  color:#fff;
+  background:rgba(255, 99, 84, 1);
+  border-radius:10px
+}
+
+/* creates a rectangle of the colour wanted for the pointy bit */
+.pinched:before {
+  content:"";
+  position:absolute;
+  top:-20px;
+  left:50%;
+  width:100px;
+  height:20px;
+  margin:0 0 0 -50px;
+  background:rgba(255, 99, 84, 1);
+}
+
+/* creates a rounded rectangle to cover part of the rectangle generated above */
+.pinched:after {
+  content:"";
+  position:absolute;
+  top:-20px;
+  left:0;
+  width:50%;
+  height:20px;
+  background:#383838;
+  border-bottom-right-radius:15px;
+}
+
+/* creates the other rounded rectangle */
+.pinched > :first-child:before {
+  content:"";
+  position:absolute;
+  top:-20px;
+  right:0;
+  width:50%;
+  height:20px;
+  background:#383838;
+  border-bottom-left-radius:15px;
 }
