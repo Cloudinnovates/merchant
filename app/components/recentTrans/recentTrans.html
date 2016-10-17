@@ -1,0 +1,12 @@
+<div class="containter">
+	<table class="table">
+		<tr>
+			<th>Date & Time</th>
+			<th>Reference #</th>
+		</tr>
+		<tr *ngFor="let trans of transactions">
+			<td>{{trans.date | date:'short'}}</td>
+			<td>{{trans.reference}}</td>
+		</tr>
+	</table>
+</div>
