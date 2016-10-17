@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./components/app.component');
 var home_1 = require('./components/home/home');
 var dashboard_1 = require('./components/dashboard/dashboard');
@@ -24,7 +25,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                routing_module_1.AppRoutingModule
+                routing_module_1.AppRoutingModule,
+                http_1.HttpModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -36,7 +38,7 @@ var AppModule = (function () {
             ],
             bootstrap: [
                 app_component_1.AppComponent
-            ]
+            ],
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
