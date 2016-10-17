@@ -6,7 +6,7 @@
 		</tr>
 		<tr *ngFor="let trans of transactions">
 			<td>{{trans.date | date:'short'}}</td>
-			<td>{{trans.reference}}</td>
+			<td><a href="/history">{{trans.reference}}</a></td>
 		</tr>
 	</table>
 </div>

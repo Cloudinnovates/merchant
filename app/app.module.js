@@ -17,6 +17,7 @@ var dashboard_1 = require('./components/dashboard/dashboard');
 var header_1 = require('./components/header/header');
 var dailyStats_1 = require('./components/dailyStats/dailyStats');
 var recentTrans_1 = require('./components/recentTrans/recentTrans');
+var salesHistory_1 = require('./components/salesHistory/salesHistory');
 var routing_module_1 = require('./routing/routing.module');
 var AppModule = (function () {
     function AppModule() {
@@ -34,7 +35,8 @@ var AppModule = (function () {
                 dashboard_1.Dashboard,
                 header_1.Header,
                 dailyStats_1.DailyStats,
-                recentTrans_1.RecentTrans
+                recentTrans_1.RecentTrans,
+                salesHistory_1.SalesHistory
             ],
             bootstrap: [
                 app_component_1.AppComponent

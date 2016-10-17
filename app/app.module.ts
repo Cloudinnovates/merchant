@@ -8,6 +8,8 @@ import { Dashboard }   	  from './components/dashboard/dashboard';
 import { Header }   	    from './components/header/header';
 import { DailyStats }     from './components/dailyStats/dailyStats';
 import { RecentTrans }    from './components/recentTrans/recentTrans';
+import { SalesHistory }   from './components/salesHistory/salesHistory';
+
 
 import { AppRoutingModule } from './routing/routing.module';
 import { Service }          from './service/service';
@@ -28,7 +30,8 @@ import { InMemoryDataService }  from './service/in-memory-data.service';
   		Dashboard,
   		Header,
   		DailyStats,
-      RecentTrans
+      RecentTrans,
+      SalesHistory
   	],
   	bootstrap: [
   		AppComponent
