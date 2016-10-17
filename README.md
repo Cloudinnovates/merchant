@@ -1,5 +1,5 @@
 # merchant
-Front-end web application for Qooway merchants to view their recent transactions, statistics through a dashboard, manage their transactions and deals.
+Front-end web application for Qooway merchants to view meaningful statistics displayed on a dashboard, review their sales history, and manage their transactions, reviews and deals.
 - - - -
 
 ### Prerequisites
