@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./components/app.component');
-var home_1 = require('./components/home/home');
 var dashboard_1 = require('./components/dashboard/dashboard');
 var header_1 = require('./components/header/header');
 var dailyStats_1 = require('./components/dailyStats/dailyStats');
@@ -31,7 +30,6 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                home_1.Home,
                 dashboard_1.Dashboard,
                 header_1.Header,
                 dailyStats_1.DailyStats,

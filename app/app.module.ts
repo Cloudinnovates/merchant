@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
 
 import { AppComponent }   from './components/app.component';
-import { Home }   		    from './components/home/home';
 import { Dashboard }   	  from './components/dashboard/dashboard';
 import { Header }   	    from './components/header/header';
 import { DailyStats }     from './components/dailyStats/dailyStats';
@@ -26,7 +25,6 @@ import { InMemoryDataService }  from './service/in-memory-data.service';
   	],
   	declarations: [
   		AppComponent,
-  		Home,
   		Dashboard,
   		Header,
   		DailyStats,
