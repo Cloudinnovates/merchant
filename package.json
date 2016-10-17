@@ -34,7 +34,8 @@
     "zone.js": "^0.6.25",
     "font-awesome": "^4.6.1",
     "rdash-ui": "^1.0.1",
-    "material-design-icons": "^3.0.1"
+    "material-design-icons": "^3.0.1",
+    "jquery": "^3.1.1"
   },
   "devDependencies": {
     "concurrently": "^3.0.0",
