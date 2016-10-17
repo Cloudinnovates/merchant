@@ -1,24 +1,9 @@
-import { Component, OnInit} from '@angular/core';
-
-import { Today }   from '../../service/today';
-import { Service }   from '../../service/service';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'dashboard',
 	templateUrl: 'app/components/dashboard/dashboard.html',
-	styleUrls: ['app/components/dashboard/dashboard.css'],
-	providers: [ Service ]
+	styleUrls: ['app/components/dashboard/dashboard.css']
 })
 
-export class Dashboard implements OnInit{
-
-  today: Today;
-
-  constructor(private service: Service) { }
-
-   ngOnInit(): void {
-    this.service.getToday()
-      .then(today => this.today = today);
-  }
-
-}
+export class Dashboard {}

@@ -15,49 +15,7 @@
             Today's Stats
         </div>
         <div class="panel-body">
-            <div class="containter">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-4">
-                        <div class="well well-lg">
-                            <div class="row">
-                                <div class="col-md-8 text-center">
-                                    <p>Sales</p>
-                                    <p *ngIf="today">${{today.sales.toFixed(2)}}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <i class="today material-icons unselectable">attach_money</i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-4">
-                        <div class="well well-lg">
-                            <div class="row">
-                                <div class="col-md-8 text-center">
-                                    <p>Visits</p>
-                                    <p *ngIf="today">{{today.visits}}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <i class="today material-icons unselectable">person</i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-4">
-                        <div class="well well-lg">
-                            <div class="row">
-                                <div class="col-md-8 text-center">
-                                    <p>Points</p>
-                                    <p *ngIf="today">{{today.points}}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <i class="today material-icons unselectable">plus_one</i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <daily-stats></daily-stats>
         </div>
     </div>
 </div>

@@ -6,8 +6,7 @@ import { AppComponent }   from './components/app.component';
 import { Home }   		    from './components/home/home';
 import { Dashboard }   	  from './components/dashboard/dashboard';
 import { Header }   	    from './components/header/header';
-import { RdWidget }   	  from './components/rd-widget/rd-widget';
-import { RdWidgetBody }   from './components/rd-widget-body/rd-widget-body';
+import { DailyStats }         from './components/dailyStats/dailyStats';
 
 import { AppRoutingModule } from './routing/routing.module';
 import { Service }          from './service/service';
@@ -27,8 +26,7 @@ import { InMemoryDataService }  from './service/in-memory-data.service';
   		Home,
   		Dashboard,
   		Header,
-  		RdWidget,
-  		RdWidgetBody
+  		DailyStats
   	],
   	bootstrap: [
   		AppComponent
