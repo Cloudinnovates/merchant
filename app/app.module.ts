@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
+import { nvD3Module }    from './nvD3Module'
 
 import { AppComponent }   from './components/app.component';
 import { Dashboard }   	  from './components/dashboard/dashboard';
@@ -8,7 +9,7 @@ import { Header }   	    from './components/header/header';
 import { DailyStats }     from './components/dailyStats/dailyStats';
 import { RecentTrans }    from './components/recentTrans/recentTrans';
 import { SalesHistory }   from './components/salesHistory/salesHistory';
-
+import { Graph }          from './components/graph/graph';
 
 import { AppRoutingModule } from './routing/routing.module';
 import { Service }          from './service/service';
@@ -21,7 +22,8 @@ import { InMemoryDataService }  from './service/in-memory-data.service';
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-    HttpModule
+    HttpModule,
+    nvD3Module
   	],
   	declarations: [
   		AppComponent,
@@ -29,7 +31,8 @@ import { InMemoryDataService }  from './service/in-memory-data.service';
   		Header,
   		DailyStats,
       RecentTrans,
-      SalesHistory
+      SalesHistory,
+      Graph
   	],
   	bootstrap: [
   		AppComponent

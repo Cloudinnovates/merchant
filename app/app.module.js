@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
+var nvD3Module_1 = require('./nvD3Module');
 var app_component_1 = require('./components/app.component');
 var dashboard_1 = require('./components/dashboard/dashboard');
 var header_1 = require('./components/header/header');
 var dailyStats_1 = require('./components/dailyStats/dailyStats');
 var recentTrans_1 = require('./components/recentTrans/recentTrans');
 var salesHistory_1 = require('./components/salesHistory/salesHistory');
+var graph_1 = require('./components/graph/graph');
 var routing_module_1 = require('./routing/routing.module');
 var AppModule = (function () {
     function AppModule() {
@@ -26,7 +28,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 routing_module_1.AppRoutingModule,
-                http_1.HttpModule
+                http_1.HttpModule,
+                nvD3Module_1.nvD3Module
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -34,7 +37,8 @@ var AppModule = (function () {
                 header_1.Header,
                 dailyStats_1.DailyStats,
                 recentTrans_1.RecentTrans,
-                salesHistory_1.SalesHistory
+                salesHistory_1.SalesHistory,
+                graph_1.Graph
             ],
             bootstrap: [
                 app_component_1.AppComponent
