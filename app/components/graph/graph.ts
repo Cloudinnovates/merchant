@@ -14,6 +14,9 @@ export class Graph implements OnInit{
 
   options;
   data;
+
+  constructor(private service: Service) { }
+
   ngOnInit(){
     this.options = {
       chart: {
@@ -29,57 +32,22 @@ export class Graph implements OnInit{
         y: function(d){return d.value;},
         showValues: true,
         valueFormat: function(d){
-          return d3.format(',.4f')(d);
+          return d3.format(',.2f')(d);
         },
         duration: 500,
         xAxis: {
-          axisLabel: 'X Axis'
+          axisLabel: ''
         },
         yAxis: {
-          axisLabel: 'Y Axis',
+          axisLabel: '',
           axisLabelDistance: -10
+        },
+        color:  function(){
+          return 'white';
         }
       }
     }
-    this.data = [
-      {
-        key: "Cumulative Return",
-        values: [
-          {
-            "label" : "A" ,
-            "value" : -29.765957771107
-          } ,
-          {
-            "label" : "B" ,
-            "value" : 0
-          } ,
-          {
-            "label" : "C" ,
-            "value" : 32.807804682612
-          } ,
-          {
-            "label" : "D" ,
-            "value" : 196.45946739256
-          } ,
-          {
-            "label" : "E" ,
-            "value" : 0.19434030906893
-          } ,
-          {
-            "label" : "F" ,
-            "value" : -98.079782601442
-          } ,
-          {
-            "label" : "G" ,
-            "value" : -13.925743130903
-          } ,
-          {
-            "label" : "H" ,
-            "value" : -5.1387322875705
-          }
-        ]
-      }
-    ];
+    this.data = this.service.getWeekly();
   }
 
 }

@@ -6,6 +6,8 @@ import { TODAY } from './mock-todays';
 import { Transaction } 	from './transaction';
 import { TRANSACTIONS } from './mock-transactions';
 
+import { WEEKLY }		from './mock-weekly';
+
 @Injectable()
 export class Service {
 
@@ -15,5 +17,9 @@ export class Service {
 
 	getRecentTrans(): Promise<Transaction[]> {
 		return Promise.resolve(TRANSACTIONS);
+	}
+
+	getWeekly(): any {
+		return WEEKLY;
 	}
 }
