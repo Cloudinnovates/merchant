@@ -38,6 +38,14 @@
     cursor: default;
 }
 
+.btn {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.dropdown-menu {
+  background-color: rgba(255,255,255,0.1);
+}
+
 .speech{
     font-size: 1.5em;
     color: rgba(255, 99, 84, 1);
