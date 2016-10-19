@@ -1,7 +1,9 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
-import { nvD3Module }    from './nvD3Module'
+import { nvD3Module }    from './nvD3Module';
+import { Ng2TableModule } from 'ng2-table';
+import { PaginationModule } from 'ng2-bootstrap/components/pagination';
 
 import { AppComponent }   from './components/app.component';
 import { Dashboard }   	  from './components/dashboard/dashboard';
@@ -23,7 +25,9 @@ import { InMemoryDataService }  from './service/in-memory-data.service';
 		BrowserModule,
 		AppRoutingModule,
     HttpModule,
-    nvD3Module
+    nvD3Module,
+    Ng2TableModule,
+    PaginationModule
   	],
   	declarations: [
   		AppComponent,

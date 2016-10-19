@@ -24,8 +24,11 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
-      'ng2-nvd3':                  'npm:ng2-nvd3/lib'
+      'ng2-nvd3':                  'npm:ng2-nvd3/lib',
+      'ng2-table':                 'npm:ng2-table',
+      'ng2-bootstrap':             'npm:ng2-bootstrap'
     },
+
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
@@ -41,6 +44,14 @@
       },
       'ng2-nvd3': {
         main: "ng2-nvd3.js",
+        defaultExtension: "js"
+      },
+      'ng2-table': {
+        main: "ng2-table",
+        defaultExtension: "js"
+      },
+      'ng2-bootstrap': {
+        main: "ng2-bootstrap",
         defaultExtension: "js"
       }
     }

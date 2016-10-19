@@ -1,1 +1,11 @@
 /* Master Styles */
+
+ /* References class in SalesHistory component */
+.table-style {
+	background-color: white;
+}
+
+ /* References class in Graph component */
+.nvd3 {
+	fill: white;
+}

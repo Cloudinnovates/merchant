@@ -12,6 +12,8 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var nvD3Module_1 = require('./nvD3Module');
+var ng2_table_1 = require('ng2-table');
+var pagination_1 = require('ng2-bootstrap/components/pagination');
 var app_component_1 = require('./components/app.component');
 var dashboard_1 = require('./components/dashboard/dashboard');
 var header_1 = require('./components/header/header');
@@ -29,7 +31,9 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 routing_module_1.AppRoutingModule,
                 http_1.HttpModule,
-                nvD3Module_1.nvD3Module
+                nvD3Module_1.nvD3Module,
+                ng2_table_1.Ng2TableModule,
+                pagination_1.PaginationModule
             ],
             declarations: [
                 app_component_1.AppComponent,

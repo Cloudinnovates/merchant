@@ -1,12 +1,13 @@
-<div class="page-header text-center">
-  <h1>SalesHistory</h1>
-</div>
+ d<div class="containter">
 
-<div class="containter">
+	<div class="jumbotron text-center">
+	  <h1>Sales History</h1>
+	</div>
+
 	<div class="col-md-2">
 	</div>
 	<div class="col-md-8">
-		<table class="table centered">
+		<!-- <table class="table centered">
 			<tr>
 				<th>Transaction Date & Time</th>
 				<th>Sales Amount</th>
@@ -15,12 +16,39 @@
 				<th>Member</th>
 				<th>Card #</th>
 				<th>Points Source</th>
-			</tr>
+			</tr> -->
 	<!-- 		<tr *ngFor="let trans of transactions">
 				<td>{{trans.date | date:'short'}}</td>
 				<td><a href="/history">{{trans.reference}}</a></td>
 			</tr> -->
-		</table>
+		<!-- </table> -->
+
+		<div class="row">
+		  <div class="col-md-4">
+		    <input *ngIf="config.filtering" placeholder="Filter all columns"
+		           [ngTableFiltering]="config.filtering"
+		           class="form-control"
+		           (tableChanged)="onChangeTable(config)"/>
+		  </div>
+		</div>
+		<br>
+		<ng-table [config]="config"
+		          (tableChanged)="onChangeTable(config)"
+		          (cellClicked)="onCellClick($event)"
+		          [rows]="rows" [columns]="columns">
+		</ng-table>
+		<pagination *ngIf="config.paging"
+		            class="pagination-sm"
+		            [(ngModel)]="page"
+		            [totalItems]="length"
+		            [itemsPerPage]="itemsPerPage"
+		            [maxSize]="maxSize"
+		            [boundaryLinks]="true"
+		            [rotate]="false"
+		            (pageChanged)="onChangeTable(config, $event)"
+		            (numPages)="numPages = $event">
+		</pagination>
+		<pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>
 	</div>
 	<div class="col-md-2">
 	</div>
