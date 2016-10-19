@@ -7,8 +7,10 @@
 
     <base href="/">
 
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/nvd3/build/nv.d3.min.css"/>
 
 
@@ -36,10 +38,30 @@
     body {
       background-color: #383838;
     }
+
+    .loading {
+       position: absolute;
+       top: 40%;
+       left: 40%;
+       bottom: 0;
+       right: 0;
+       margin: auto;
+    }
+
+    .fa-spinner{
+      color: rgb(255, 99, 84);
+      font-size: 1000%;
+
+    }
   </style>
   
   <!-- 3. Display the application -->
   <body>
-    <app>Loading...</app>
+    <app>
+      <div class="loading">
+        <i class="fa fa-spinner fa-spin fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
+    </app>
   </body>
 </html>
