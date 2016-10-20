@@ -72,16 +72,19 @@ export class SalesHistory implements OnInit{
   }
 
   public ngOnInit():void {
-  	this.parseData(this.data);
+  	// this.parseData(this.data);
     this.onChangeTable(this.config);
   }
 
-  public parseData(data:any): void {
+  public parseData(data:any):any {
 
-  	for (var d of data) {
+  	let parsedData:Array<any> = data;
+  	for (var d of parsedData) {
   		d.date = this.dataPipe.transform(d.date, 'short');
   		d.amount = '$' + d.amount;
   	}
+
+  	return data;
   }
 
   public changePage(page:any, data:Array<any> = this.data):Array<any> {
@@ -112,11 +115,20 @@ export class SalesHistory implements OnInit{
 
     // simple sorting
     return data.sort((previous:any, current:any) => {
-      if (previous[columnName] > current[columnName]) {
-        return sort === 'desc' ? -1 : 1;
-      } else if (previous[columnName] < current[columnName]) {
-        return sort === 'asc' ? -1 : 1;
-      }
+
+      if (columnName === 'date') {
+      	if (previous[columnName].valueOf() > current[columnName].valueOf()) {
+	        return sort === 'desc' ? -1 : 1;
+	    } else if (previous[columnName].valueOf() < current[columnName].valueOf()) {
+	        return sort === 'asc' ? -1 : 1;
+	    }
+      } else {
+	      if (previous[columnName] > current[columnName]) {
+	        return sort === 'desc' ? -1 : 1;
+	      } else if (previous[columnName] < current[columnName]) {
+	        return sort === 'asc' ? -1 : 1;
+	      }
+	  }
       return 0;
     });
   }
@@ -168,6 +180,8 @@ export class SalesHistory implements OnInit{
 
     let filteredData = this.changeFilter(this.data, this.config);
     let sortedData = this.changeSort(filteredData, this.config);
+    // sortedData = this.parseData(sortedData);
+    // console.log(this.data);
     this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
     this.length = sortedData.length;
   }
