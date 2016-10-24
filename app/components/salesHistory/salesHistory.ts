@@ -2,23 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TableData } from './table-data';
 import { TRANSACTIONS } from '../../service/mock-transactions'
+import { Transaction }   from '../../service/transaction'
+import { Service }       from '../../service/service';
 
 @Component({
 	selector: 'sales-history',
 	templateUrl: 'app/components/salesHistory/salesHistory.html',
 	styleUrls: ['app/components/salesHistory/salesHistory.css'],
-	providers: [DatePipe]
+	providers: [Service, DatePipe]
 })
 
-export class SalesHistory implements OnInit{
+export class SalesHistory implements OnInit {
 
-				// <th>Transaction Date & Time</th>
-				// <th>Sales Amount</th>
-				// <th>QooPoints Earned</th>
-				// <th>Reference #</th>
-				// <th>Member</th>
-				// <th>Card #</th>
-				// <th>Points Source</th>
+  private getTransactions(): void {
+    this.service.getTransactions().subscribe(
+      // onNext
+      transactions => {
+        this.data = transactions;
+        this.length = this.data.length;
+      },
+      // onError
+      err => {
+        // Log errors if any
+        console.log(err);
+      },
+      // onComplete
+      () => {
+        this.onChangeTable(this.config);
+      });
+  }
 
   public rows:Array<any> = [];
   public columns:Array<any> = [
@@ -35,6 +47,10 @@ export class SalesHistory implements OnInit{
   		title: 'QooPoints Earned',
   		name: 'points'
   	},
+    { 
+      title: 'Reference #',
+      name: 'reference'
+    },
   	{ 
   		title: 'Member',
   		name: 'member',
@@ -65,15 +81,12 @@ export class SalesHistory implements OnInit{
     className: ['table-style','table-hover','table-bordered']
   };
 
-  private data:Array<any> = TRANSACTIONS;
+  private data: Transaction[];
 
-  public constructor(private dataPipe: DatePipe) {
-    this.length = this.data.length;
-  }
+  public constructor(private dataPipe: DatePipe, private service: Service) {}
 
   public ngOnInit():void {
-  	// this.parseData(this.data);
-    this.onChangeTable(this.config);
+  	this.getTransactions();
   }
 
   public parseData(data:any):any {
@@ -156,8 +169,11 @@ export class SalesHistory implements OnInit{
     filteredData.forEach((item:any) => {
       let flag = false;
       this.columns.forEach((column:any) => {
-        if (item[column.name].toString().match(this.config.filtering.filterString)) {
-          flag = true;
+        // Check to make sure value is not null first or else .toString() will throw an error
+        if (item[column.name]) {
+          if (item[column.name].toString().match(this.config.filtering.filterString)) {
+            flag = true;
+          }
         }
       });
       if (flag) {

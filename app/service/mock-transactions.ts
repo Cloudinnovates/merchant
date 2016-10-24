@@ -8,7 +8,7 @@ export const TRANSACTIONS: Transaction[] = [
 		reference: 4567894,
 		member: 'Reggie Litman',
 		card: 8081112945371538,
-		source: 'Earned'
+		source: ''
 	},
 	{
 		date: new Date('2015-12-16T16:12:00-08:00'),

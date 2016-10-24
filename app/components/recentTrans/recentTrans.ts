@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 
-import { Transaction }   from '../../service/transaction';
+import { Transaction }   from '../../service/transaction'
 import { Service }       from '../../service/service';
 
 @Component({
@@ -16,8 +16,16 @@ export class RecentTrans implements OnInit{
 
   constructor(private service: Service) { }
 
-   ngOnInit(): void {
-    this.service.getRecentTrans()
-      .then(transctions => this.transactions = transctions);
+  ngOnInit(): void {
+    this.getTransactions();
+  }
+
+  private getTransactions(): void {
+    this.service.getTransactions().subscribe(
+      transactions => this.transactions = transactions, //Bind to view
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
   }
 }
