@@ -8,9 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Today } from './today';
-import { TODAY } from './mock-todays';
-
-import { Transaction } 	from '../service/transaction';
+import { Transaction } 	from './transaction';
 
 import { WEEKLY }		from './mock-weekly';
 
