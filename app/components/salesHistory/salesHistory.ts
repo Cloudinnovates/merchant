@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { TableData } from './table-data';
 import { TRANSACTIONS } from '../../service/mock-transactions'
 import { Transaction }   from '../../service/transaction'
 import { Service }       from '../../service/service';

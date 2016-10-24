@@ -17,13 +17,20 @@ import { WEEKLY }		from './mock-weekly';
 @Injectable()
 export class Service {
 
-	private transactionsUrl = 'http://localhost:3000/api/transactions';
+	private baseUrl = 'http://localhost:3000/api/';
  
     constructor(private http: Http) {}
 
+    // Fetch all most recent 10 sales transactions
+    getRecentTransactions() : Observable<Transaction[]> {
+        return this.http.get(this.baseUrl + 'recent-transactions')
+            .map(mapTransactions)
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     // Fetch all sales transactions
     getTransactions() : Observable<Transaction[]> {
-        return this.http.get(this.transactionsUrl)
+        return this.http.get(this.baseUrl + 'transactions')
             .map(mapTransactions)
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }

@@ -17,11 +17,11 @@ export class RecentTrans implements OnInit{
   constructor(private service: Service) { }
 
   ngOnInit(): void {
-    this.getTransactions();
+    this.getRecentTransactions();
   }
 
-  private getTransactions(): void {
-    this.service.getTransactions().subscribe(
+  private getRecentTransactions(): void {
+    this.service.getRecentTransactions().subscribe(
       transactions => this.transactions = transactions, //Bind to view
       err => {
         // Log errors if any
