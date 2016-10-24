@@ -17,8 +17,16 @@ export class DailyStats implements OnInit{
   constructor(private service: Service) { }
 
    ngOnInit(): void {
-    this.service.getToday()
-      .then(today => this.today = today);
+    this.getToday();
+  }
+
+  private getToday(): void {
+    this.service.getToday().subscribe(
+      today => this.today = today,
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
   }
 
 }

@@ -1,4 +1,4 @@
-export class Today {
+export interface Today {
 	sales: number;
 	visits: number;
 	points: number;

@@ -21,6 +21,13 @@ export class Service {
  
     constructor(private http: Http) {}
 
+    // Fetch today's stat totals: sales, vists, points
+    getToday() : Observable<Today> {
+        return this.http.get(this.baseUrl + 'todays-stats')
+            .map(toToday)
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     // Fetch all most recent 10 sales transactions
     getRecentTransactions() : Observable<Transaction[]> {
         return this.http.get(this.baseUrl + 'recent-transactions')
@@ -35,13 +42,19 @@ export class Service {
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-	getToday(): Promise<Today> {
-		return Promise.resolve(TODAY);
-	}
-
 	getWeekly(): any {
 		return WEEKLY;
 	}
+}
+
+function toToday(response:Response): Today {
+	let r = response.json();
+	let today = {
+		sales: r[0].sales,
+		visits: r[0].visits,
+		points: r[0].points
+	};
+   return today;
 }
 
 function mapTransactions(response:Response): Transaction[] {
