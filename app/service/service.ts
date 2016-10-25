@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 
 import { Today } from './today';
 import { Transaction } 	from './transaction';
+import { GraphElement } from './graphElement';
 
 import { WEEKLY }		from './mock-weekly';
 
@@ -40,12 +41,19 @@ export class Service {
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-	getWeekly(): any {
-		return WEEKLY;
-	}
+    // Fetch all sales transactions
+    getWeekly() : Observable<GraphElement[]> {
+        return this.http.get(this.baseUrl + 'weekly')
+            .map(mapWeekly)
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+	// getWeekly(): any {
+	// 	return WEEKLY;
+	// }
 }
 
-function toToday(response:Response): Today {
+function toToday(response:Response) : Today {
 	let r = response.json();
 	let today = {
 		sales: r[0].sales,
@@ -55,7 +63,7 @@ function toToday(response:Response): Today {
    return today;
 }
 
-function mapTransactions(response:Response): Transaction[] {
+function mapTransactions(response:Response) : Transaction[] {
    return response.json().map(toTransaction);
 }
 
@@ -70,4 +78,16 @@ function toTransaction(r:any): Transaction {
 	source: r.Remark,
   });
   return transaction;
+}
+
+function mapWeekly(response:Response) : GraphElement[] {
+   return response.json().map(toGraphElement);
+}
+
+function toGraphElement(r:any) : GraphElement {
+  let element = <GraphElement>({
+  	label: r.label,
+  	value: r.value
+  });
+  return element;
 }
