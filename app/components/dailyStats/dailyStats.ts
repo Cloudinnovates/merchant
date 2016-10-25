@@ -26,7 +26,14 @@ export class DailyStats implements OnInit{
       err => {
         // Log errors if any
         console.log(err);
+      },
+      () => {
+        checkNull(this.today);
       });
   }
+}
 
+function checkNull(t:Today) : void {
+  if (!t.sales) t.sales = 0;
+  if (!t.points) t.points = 0;
 }
