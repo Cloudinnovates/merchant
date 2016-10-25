@@ -26,7 +26,8 @@
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'ng2-nvd3':                  'npm:ng2-nvd3/lib',
       'ng2-table':                 'npm:ng2-table',
-      'ng2-bootstrap':             'npm:ng2-bootstrap'
+      'ng2-bootstrap':             'npm:ng2-bootstrap',
+      'moment':                    'npm:moment'
     },
 
     // packages tells the System loader how to load when no filename and/or no extension
@@ -52,6 +53,10 @@
       },
       'ng2-bootstrap': {
         main: "ng2-bootstrap",
+        defaultExtension: "js"
+      },
+      'moment': {
+        main: "moment",
         defaultExtension: "js"
       }
     }
