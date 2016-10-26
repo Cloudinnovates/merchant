@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 
-import { Today }   from '../../service/today';
+import { Stat }   from '../../service/stat';
 import { Service }   from '../../service/service';
 
 @Component({
@@ -12,7 +12,7 @@ import { Service }   from '../../service/service';
 
 export class DailyStats implements OnInit{
 
-  today: Today;
+  stat: Stat;
 
   constructor(private service: Service) { }
 
@@ -21,19 +21,19 @@ export class DailyStats implements OnInit{
   }
 
   private getToday(): void {
-    this.service.getToday().subscribe(
-      today => this.today = today,
+    this.service.getTodayStats().subscribe(
+      today => this.stat = today,
       err => {
         // Log errors if any
         console.log(err);
       },
       () => {
-        checkNull(this.today);
+        checkNull(this.stat);
       });
   }
 }
 
-function checkNull(t:Today) : void {
-  if (!t.sales) t.sales = 0;
-  if (!t.points) t.points = 0;
+function checkNull(s:Stat) : void {
+  if (!s.sales) s.sales = 0;
+  if (!s.points) s.points = 0;
 }

@@ -5,10 +5,10 @@
                 <div class="row">
                     <div class="col-xs-8 text-center">
                         <p>Sales</p>
-                        <p *ngIf="today">${{today.sales.toFixed(2)}}</p>
+                        <p *ngIf="stat">${{stat.sales.toFixed(2)}}</p>
                     </div>
                     <div class="col-xs-4">
-                        <i class="today material-icons unselectable">attach_money</i>
+                        <i class="stat material-icons unselectable">attach_money</i>
                     </div>
                 </div>
             </div>
@@ -18,10 +18,10 @@
                 <div class="row">
                     <div class="col-xs-8 text-center">
                         <p>Visits</p>
-                        <p *ngIf="today">{{today.visits}}</p>
+                        <p *ngIf="stat">{{stat.visits}}</p>
                     </div>
                     <div class="col-xs-4">
-                        <i class="today material-icons unselectable">person</i>
+                        <i class="stat material-icons unselectable">person</i>
                     </div>
                 </div>
             </div>
@@ -31,10 +31,10 @@
                 <div class="row">
                     <div class="col-xs-8 text-center">
                         <p>Points</p>
-                        <p *ngIf="today">{{today.points}}</p>
+                        <p *ngIf="stat">{{stat.points}}</p>
                     </div>
                     <div class="col-xs-4">
-                        <i class="today material-icons unselectable">plus_one</i>
+                        <i class="stat material-icons unselectable">plus_one</i>
                     </div>
                 </div>
             </div>

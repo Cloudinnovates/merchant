@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Today } from './today';
+import { Stat } from './stat';
 import { Transaction } 	from './transaction';
 import { GraphElement } from './graphElement';
 
@@ -21,9 +21,16 @@ export class Service {
     constructor(private http: Http) {}
 
     // Fetch today's stat totals: sales, vists, points
-    getToday() : Observable<Today> {
+    getTodayStats() : Observable<Stat> {
         return this.http.get(this.baseUrl + 'todays-stats')
-            .map(toToday)
+            .map(toStat)
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    // Fetch weekly stat totals: sales, vists, points
+    getWeeklyStats() : Observable<Stat> {
+        return this.http.get(this.baseUrl + 'weekly-stats')
+            .map(toStat)
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
@@ -53,14 +60,14 @@ export class Service {
 	// }
 }
 
-function toToday(response:Response) : Today {
+function toStat(response:Response) : Stat {
 	let r = response.json();
-	let today = {
+	let stat = {
 		sales: r[0].sales,
 		visits: r[0].visits,
 		points: r[0].points
 	};
-   return today;
+   return stat;
 }
 
 function mapTransactions(response:Response) : Transaction[] {
