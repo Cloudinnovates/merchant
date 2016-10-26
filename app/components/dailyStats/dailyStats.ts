@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, HostListener, ViewEncapsulation} from '@angular/core';
 
 import { Stat }   from '../../service/stat';
 import { Service }   from '../../service/service';
@@ -6,7 +6,8 @@ import { Service }   from '../../service/service';
 @Component({
 	selector: 'daily-stats',
 	templateUrl: 'app/components/dailyStats/dailyStats.html',
-	styleUrls: ['app/components/dailyStats/dailyStats.css'],
+	styleUrls: ['app/components/dailyStats/dailyStats.css', 'app/components/dashboard/dashboard.css'],
+  encapsulation: ViewEncapsulation.None,
 	providers: [ Service ]
 })
 
@@ -20,9 +21,39 @@ export class DailyStats implements OnInit{
     this.getToday();
   }
 
+  @HostListener('click', ['$event'])
+  onClick(e) {
+    console.log(e)
+  }
+
+
   private getToday(): void {
     this.service.getTodayStats().subscribe(
-      today => this.stat = today,
+      stat => this.stat = stat,
+      err => {
+        // Log errors if any
+        console.log(err);
+      },
+      () => {
+        checkNull(this.stat);
+      });
+  }
+
+  private getWeekly(): void {
+    this.service.getWeeklyStats().subscribe(
+      stat => this.stat = stat,
+      err => {
+        // Log errors if any
+        console.log(err);
+      },
+      () => {
+        checkNull(this.stat);
+      });
+  }
+
+  private getMonthly(): void {
+    this.service.getMonthlyStats().subscribe(
+      stat => this.stat = stat,
       err => {
         // Log errors if any
         console.log(err);

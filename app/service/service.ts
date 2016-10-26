@@ -34,6 +34,13 @@ export class Service {
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    // Fetch monthly stat totals: sales, vists, points
+    getMonthlyStats() : Observable<Stat> {
+        return this.http.get(this.baseUrl + 'monthly-stats')
+            .map(toStat)
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     // Fetch all most recent 10 sales transactions
     getRecentTransactions() : Observable<Transaction[]> {
         return this.http.get(this.baseUrl + 'recent-transactions')
