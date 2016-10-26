@@ -10,7 +10,7 @@
     box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
 }
 
-.panel-heading{
+:host >>> .panel-heading{
     background-color: rgba(255, 99, 84, 1);
     border-top: 0;
     border-top-left-radius: 7px;
@@ -19,16 +19,7 @@
     font-size: 1.8em;
 }
 
-.well{
-    background-color: rgba(255,255,255,0.1);
-    border: 0;
-    border-radius: 7px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
-    color: white;
-    font-size: 2em;
-}
-
-.material-icons{
+:host >>> .panel-heading .material-icons{
     color: white;
     font-size: 1em;
 }

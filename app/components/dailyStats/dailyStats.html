@@ -1,40 +1,56 @@
-<div class="containter">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4">
-            <div class="well well-lg">
-                <div class="row">
-                    <div class="col-xs-8 text-center">
-                        <p>Sales</p>
-                        <p *ngIf="stat">${{stat.sales.toFixed(2)}}</p>
-                    </div>
-                    <div class="col-xs-4">
-                        <i class="stat material-icons unselectable">attach_money</i>
-                    </div>
-                </div>
+<!-- Today's Stats Panel-->
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="material-icons unselectable">priority_high</i>
+            Today's Stats
+            <div class="btn-group pull-right" role="group" aria-label="...">
+              <button (click)="getToday()" type="button" class="btn btn-default">Today</button>
+              <button (click)="getWeekly()" type="button" class="btn btn-default">This Week</button>
+              <button (click)="getMonthly()" type="button" class="btn btn-default">This Month</button>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4">
-            <div class="well well-lg">
+        <div class="panel-body">
+            <div class="containter">
                 <div class="row">
-                    <div class="col-xs-8 text-center">
-                        <p>Visits</p>
-                        <p *ngIf="stat">{{stat.visits}}</p>
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="well well-lg">
+                            <div class="row">
+                                <div class="col-xs-8 text-center">
+                                    <p>Sales</p>
+                                    <p *ngIf="stat">${{stat.sales.toFixed(2)}}</p>
+                                </div>
+                                <div class="col-xs-4">
+                                    <i class="stat material-icons unselectable">attach_money</i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-xs-4">
-                        <i class="stat material-icons unselectable">person</i>
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="well well-lg">
+                            <div class="row">
+                                <div class="col-xs-8 text-center">
+                                    <p>Visits</p>
+                                    <p *ngIf="stat">{{stat.visits}}</p>
+                                </div>
+                                <div class="col-xs-4">
+                                    <i class="stat material-icons unselectable">person</i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-4">
-            <div class="well well-lg">
-                <div class="row">
-                    <div class="col-xs-8 text-center">
-                        <p>Points</p>
-                        <p *ngIf="stat">{{stat.points}}</p>
-                    </div>
-                    <div class="col-xs-4">
-                        <i class="stat material-icons unselectable">plus_one</i>
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="well well-lg">
+                            <div class="row">
+                                <div class="col-xs-8 text-center">
+                                    <p>Points</p>
+                                    <p *ngIf="stat">{{stat.points}}</p>
+                                </div>
+                                <div class="col-xs-4">
+                                    <i class="stat material-icons unselectable">plus_one</i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
