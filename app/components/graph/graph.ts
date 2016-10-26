@@ -103,7 +103,7 @@ function setZeroSales(e:GraphElement[]) : GraphElement[] {
 
     // While the start date != sales date (those dates aren't accounted for
     // in the response), add those dates to array temp
-    while(startDate.diff(saleDate) != 0) {
+    while(startDate.diff(saleDate, 'days') < 0) {
       temp.push({
         label: startDate.format('YYYYMMDD').toString(),
         value: 0
@@ -115,7 +115,7 @@ function setZeroSales(e:GraphElement[]) : GraphElement[] {
 
   // Add days between the last entry in e[] and tomorrow (not includding) that aren't accounted for
   var today = moment().add(1, 'days').startOf('day');
-  while(startDate.diff(today) != 0) {
+  while(startDate.diff(today, 'days') < 0) {
     temp.push({
         label: startDate.format('YYYYMMDD').toString(),
         value: 0
